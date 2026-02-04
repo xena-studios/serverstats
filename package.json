@@ -1,0 +1,14 @@
+{
+	"name": "serverstats",
+	"private": true,
+	"scripts": {
+		"check": "biome check --write"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "2.3.14",
+		"lefthook": "^2.1.0"
+	},
+	"pnpm": {
+		"onlyBuiltDependencies": ["lefthook"]
+	}
+}
