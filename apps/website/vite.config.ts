@@ -12,15 +12,16 @@ const config = defineConfig({
 	plugins: [
 		devtools(),
 		nitro({
+			// Fixes issue with Nitro not bundling reflect-metadata which is required by better-auth/passkey.
 			rollupConfig: {
 				plugins: [
-					// Fixes issue with Nitro not bundling reflect-metadata which is required by better-auth/passkey
 					{
 						name: "inject-reflect-metadata",
 						banner: () => `import "reflect-metadata";`,
 					},
 				],
 			},
+			noExternals: ["reflect-metadata"],
 		}),
 		tailwindcss(),
 		tanstackStart(),
